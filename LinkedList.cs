@@ -74,6 +74,28 @@ namespace DataStructureLinkedList
                 head = null;
             }
         }
+        public void DeleteLast()
+        {
+            Node temp = this.head;
+            Node temp2 = this.head;
+
+            if (head.next == null)
+            {
+                head = null;
+            }
+            while (temp.next != null)
+            {
+                temp = temp.next;
+            }
+            while (temp2 != null)
+            {
+                if (temp2.next == temp)
+                {
+                    temp2.next = null;
+                }
+                temp2 = temp2.next;
+            }
+        }
         public void Display()
         {
             Node temp = this.head;
