@@ -43,6 +43,24 @@ namespace DataStructureLinkedList
             }
             Console.WriteLine("{0} data is inserted ", node.data);
         }
+        public void Insert(int data, int posVal)
+        {
+            Node node = new Node(data);
+            Node temp = this.head;
+
+            while (temp != null)
+            {
+                if (temp.data == 56)
+                {
+                    node.next = temp.next;
+                    temp.next = node;
+                    Console.WriteLine("New data is inserted in between 56 and 70");
+                    break;
+
+                }
+                temp = temp.next;
+            }
+        }
         public void Display()
         {
             Node temp = this.head;

@@ -8,9 +8,10 @@ namespace DataStructureLinkedList
         {
             LinkedList list = new LinkedList();
             list.Append(56);
-            list.Append(30);
             list.Append(70);
-            list.Display(); ;
+            list.Display();
+            list.Insert(30, 56);
+            list.Display();
         }
     }
 }
