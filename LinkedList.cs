@@ -24,20 +24,19 @@ namespace DataStructureLinkedList
             }
             Console.WriteLine("{0} data is Inserted ", node.data);
         }
-        public void PrintList()
+        public void Display()
         {
             Node temp = this.head;
             if (temp == null)
             {
-                Console.WriteLine("Linked list is empty");
+                Console.WriteLine("LinkedList is empty");
                 return;
             }
             while (temp != null)
             {
-                Console.Write(temp.data + " ");
+                Console.WriteLine(temp.data + " ");
                 temp = temp.next;
             }
         }
     }
 }
-              
