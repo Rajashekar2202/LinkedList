@@ -24,78 +24,7 @@ namespace DataStructureLinkedList
             }
             Console.WriteLine("{0} data is Inserted ", node.data);
         }
-        public void Append(int data)
-        {
-            Node node = new Node(data);
 
-            if (this.head == null)
-            {
-                this.head = node;
-            }
-            else
-            {
-                Node temp = head;
-                while (temp.next != null)
-                {
-                    temp = temp.next;
-                }
-                temp.next = node;
-            }
-            Console.WriteLine("{0} data is inserted ", node.data);
-        }
-        public void Insert(int data, int posVal)
-        {
-            Node node = new Node(data);
-            Node temp = this.head;
-
-            while (temp != null)
-            {
-                if (temp.data == 56)
-                {
-                    node.next = temp.next;
-                    temp.next = node;
-                    Console.WriteLine("New data is inserted in between 56 and 70");
-                    break;
-                }
-                temp = temp.next;
-            }
-        }
-        public void DeleteFirst()
-        {
-            Node temp = this.head;
-
-            if (temp.next != null)
-            {
-                head = temp.next;
-                temp.next = null;
-            }
-            else
-            {
-                head = null;
-            }
-        }
-        public void DeleteLast()
-        {
-            Node temp = this.head;
-            Node temp2 = this.head;
-
-            if (head.next == null)
-            {
-                head = null;
-            }
-            while (temp.next != null)
-            {
-                temp = temp.next;
-            }
-            while (temp2 != null)
-            {
-                if (temp2.next == temp)
-                {
-                    temp2.next = null;
-                }
-                temp2 = temp2.next;
-            }
-        }
         public void Display()
         {
             Node temp = this.head;
@@ -109,6 +38,67 @@ namespace DataStructureLinkedList
                 Console.WriteLine(temp.data + " ");
                 temp = temp.next;
             }
+        }
+
+        public void InsertAtParticularPosition(int position, int data)
+        {
+            Node newestNode = new Node(data);
+            if (this.head == null)
+            {
+                this.head = newestNode;
+            }
+            if (position == 0)
+            {
+                newestNode.next = this.head;
+                this.head = newestNode;
+            }
+            Node prev = null;
+            Node current = this.head;
+            int count = 0;
+            while (current != null && count < position)
+            {
+                prev = current;
+                current = current.next;
+                count++;
+            }
+            newestNode.next = prev.next;
+            prev.next = newestNode;
+        }
+
+        public Node RemoveFirstNode()
+        {
+            if (this.head == null)
+                return null;
+            this.head = this.head.next;
+            return this.head;
+        }
+
+        public Node RemoveLastNode()
+        {
+            if (head == null)
+                return null;
+            if (head.next == null)
+                return null;
+            Node newNode = head;
+            while (newNode.next.next != null)
+            {
+                newNode = newNode.next;
+            }
+            newNode.next = null;
+            return head;
+        }
+
+        public Node Search(int value)
+        {
+            while (this.head != null)
+            {
+                if (this.head.data == value)
+                {
+                    return this.head;
+                }
+                this.head = this.head.next;
+            }
+            return null;
         }
     }
 }
