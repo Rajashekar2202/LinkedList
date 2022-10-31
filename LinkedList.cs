@@ -24,6 +24,25 @@ namespace DataStructureLinkedList
             }
             Console.WriteLine("{0} data is Inserted ", node.data);
         }
+        public void Append(int data)
+        {
+            Node node = new Node(data);
+
+            if (this.head == null)
+            {
+                this.head = node;
+            }
+            else
+            {
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = node;
+            }
+            Console.WriteLine("{0} data is inserted ", node.data);
+        }
         public void Display()
         {
             Node temp = this.head;
