@@ -56,9 +56,22 @@ namespace DataStructureLinkedList
                     temp.next = node;
                     Console.WriteLine("New data is inserted in between 56 and 70");
                     break;
-
                 }
                 temp = temp.next;
+            }
+        }
+        public void DeleteFirst()
+        {
+            Node temp = this.head;
+
+            if (temp.next != null)
+            {
+                head = temp.next;
+                temp.next = null;
+            }
+            else
+            {
+                head = null;
             }
         }
         public void Display()
