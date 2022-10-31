@@ -88,17 +88,41 @@ namespace DataStructureLinkedList
             return head;
         }
 
-        public Node Search(int value)
+        public int findNodeWithValue(int value)
         {
-            while (this.head != null)
+            bool flag = true;
+            int count = 1;
+            Node temp = head;
+            while (flag)
             {
-                if (this.head.data == value)
+                if (temp.data == value)
                 {
-                    return this.head;
+                    flag = false;
                 }
-                this.head = this.head.next;
+                else
+                {
+                    temp = temp.next;
+                    count++;
+                }
             }
-            return null;
+            return count;
         }
+        public void AddAfterAtPerticulatPosition(int data)
+        {
+            Node newnode = new Node(40);
+            Node temp = head;
+
+            while (temp.next != null)
+            {
+                if (temp.data == data)
+                {
+                    newnode.next = temp.next;
+                    temp.next = newnode;
+                }
+                temp = temp.next;
+            }
+            Console.WriteLine("Given LinkedList = " + head.data);
+        }
+
     }
 }

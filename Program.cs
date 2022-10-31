@@ -11,11 +11,10 @@ namespace DataStructureLinkedList
             list.Add(30);
             list.Add(70);
             list.Display();
-            Console.WriteLine(" ");
-            Console.WriteLine("---------------------");
-
-            list.Search(30);
+            Console.WriteLine("\nAdd after 30 : 40");
+            list.AddAfterAtPerticulatPosition(30);
             list.Display();
+            Console.Read();
         }
     }
 }
